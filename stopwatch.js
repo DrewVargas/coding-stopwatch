@@ -1,9 +1,10 @@
 class Stopwatch {
-  constructor() {
+  constructor(elem) {
     this.time = 0;
     this.offset;
     this.interval;
     this.isOn = false;
+    this.elem = elem;
   }
 
   delta() {
@@ -18,6 +19,7 @@ class Stopwatch {
     let minutes = time.getMinutes().toString();
     let seconds = time.getSeconds().toString();
     let hours = '00';
+    let milliseconds = time.getMilliseconds().toString();
 
     if (minutes.length < 2) {
       minutes = `0${minutes}`;
@@ -39,7 +41,8 @@ class Stopwatch {
     if (!this.isOn) {
       this.interval = setInterval(() => {
         this.time += this.delta();
-        console.log(this.timeFormatter(this.time));
+        let timeFormatted = this.timeFormatter(this.time);
+        this.elem.textContent = timeFormatted;
       }, 1000);
       this.offset = Date.now();
       this.isOn = true;
@@ -56,5 +59,6 @@ class Stopwatch {
 
   reset() {
     this.time = 0;
+    this.elem.textContent = `${this.timeFormatter(this.time)}`;
   }
 }

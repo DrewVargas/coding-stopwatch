@@ -54,3 +54,11 @@ body {
   cursor: pointer;
   background-color: #0c45a0;
 }
+
+.stop {
+  background-color: #db6f59;
+}
+
+.stop:hover {
+  background-color: #a32a11;
+}
