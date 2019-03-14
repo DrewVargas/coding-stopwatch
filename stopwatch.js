@@ -18,7 +18,8 @@ class Stopwatch {
     let time = new Date(timeInSec);
     let minutes = time.getMinutes().toString();
     let seconds = time.getSeconds().toString();
-    let hours = '00';
+    let hours = time.getHours().toString();
+    hours = hours - '19';
 
     if (minutes.length < 2) {
       minutes = `0${minutes}`;
@@ -28,9 +29,8 @@ class Stopwatch {
       seconds = `0${seconds}`;
     }
 
-    if (minutes >= '59' && seconds > '59') {
-      hours++;
-      hours = `0${hours}`;
+    if (hours.length < 2) {
+      hours = `0${hours};`;
     }
 
     return `${hours} : ${minutes} : ${seconds}`;
