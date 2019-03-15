@@ -11,6 +11,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: #dde2ff;
 }
 
 #timer {
@@ -21,11 +22,14 @@ body {
 .stopwatch-container {
   display: flex;
   margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 15px;
+  background-color: #eaedf9;
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
   flex-direction: column;
-  max-width: 1200px;
+  max-width: 600px;
   min-height: calc(100vh - 25rem);
 }
 
@@ -56,10 +60,48 @@ body {
   background-color: #0c45a0;
 }
 
+.start {
+  background-color: #ff9b7a;
+}
+
 .stop {
   background-color: #db6f59;
 }
 
 .stop:hover {
   background-color: #a32a11;
+}
+
+.table-container {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 60%;
+  height: 25px;
+}
+
+th {
+  background-color: #0c45a0;
+  color: #fff;
+}
+
+tr {
+  text-align: center;
+  text-transform: capitalize;
+}
+
+tr:nth-child(even) {
+  background-color: #b2c6ea;
+}
+
+table,
+th,
+td {
+  border: 2px solid black;
 }
