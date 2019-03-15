@@ -30,10 +30,11 @@ body {
   flex-wrap: wrap;
   flex-direction: column;
   max-width: 600px;
-  min-height: calc(100vh - 25rem);
+  min-height: calc(100vh - 35rem);
 }
 
 .button-container {
+  margin-bottom: 2rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -81,6 +82,7 @@ body {
 }
 
 table {
+  font-family: 'Poppins', sans-serif;
   border-collapse: collapse;
   width: 60%;
   height: 25px;
@@ -89,6 +91,15 @@ table {
 th {
   background-color: #0c45a0;
   color: #fff;
+}
+
+th:last-child,
+span {
+  text-transform: none;
+}
+
+span {
+  font-size: 12px;
 }
 
 tr {
@@ -104,4 +115,8 @@ table,
 th,
 td {
   border: 2px solid black;
+}
+
+td {
+  font-size: 16px;
 }

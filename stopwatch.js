@@ -19,7 +19,7 @@ class Stopwatch {
     let minutes = time.getMinutes().toString();
     let seconds = time.getSeconds().toString();
     let hours = time.getHours().toString();
-    hours = hours - '19';
+    hours = '0';
 
     if (minutes.length < 2) {
       minutes = `0${minutes}`;
@@ -30,7 +30,7 @@ class Stopwatch {
     }
 
     if (hours.length < 2) {
-      hours = `0${hours};`;
+      hours = `${hours}`;
     }
 
     return `${hours} : ${minutes} : ${seconds}`;
