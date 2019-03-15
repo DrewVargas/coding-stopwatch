@@ -16,6 +16,7 @@ function toggleTimer() {
     toggleBtn.textContent = 'Start';
     toggleBtn.classList.remove('stop');
     stopwatchContainer.classList.remove('start');
+    watch.logTime();
   }
 }
 

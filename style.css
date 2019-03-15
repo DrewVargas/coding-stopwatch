@@ -79,6 +79,16 @@ body {
   justify-content: center;
   margin-top: 2rem;
   font-size: 1.2rem;
+  max-width: 90%;
+}
+
+@media (max-width: 768px) {
+  .table-container {
+    font-size: 0.5rem;
+  }
+  table {
+    min-width: 600px;
+  }
 }
 
 table {

@@ -14,6 +14,10 @@ class Stopwatch {
     return timePassed;
   }
 
+  logTime() {
+    console.log(this.timeFormatter(this.time));
+  }
+
   timeFormatter(timeInSec) {
     let time = new Date(timeInSec);
     let minutes = time.getMinutes().toString();
