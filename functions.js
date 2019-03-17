@@ -41,4 +41,5 @@ function resetTimer() {
 function logTimer() {
   stopTimer();
   watch.logTime();
+  watch.reset();
 }

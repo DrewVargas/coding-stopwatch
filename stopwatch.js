@@ -46,16 +46,6 @@ class Stopwatch {
     this.timeList.push(stopwatchTime);
     this.addTime(stopwatchTime);
     this.storeTime(stopwatchTime);
-
-    // let month = this.dayOfWeek.getMonth();
-    // let day = this.dayOfWeek.getDate();
-    // let year = this.dayOfWeek
-    //   .getFullYear()
-    //   .toString()
-    //   .slice(2);
-    // let date = `${month}/${day}/${year}`;
-    // console.log(typeof date);
-    // console.log(this.timeFormatter(this.time));
   }
 
   storeTime(stopwatch) {
