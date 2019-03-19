@@ -31,6 +31,8 @@ body {
   flex-direction: column;
   max-width: 600px;
   min-height: calc(100vh - 35rem);
+  opacity: 1;
+  transition: opacity 2s;
 }
 
 .button-container {
@@ -80,6 +82,8 @@ body {
   margin-top: 2rem;
   font-size: 1.2rem;
   max-width: 90%;
+  opacity: 1;
+  transition: opacity 2s;
 }
 
 @media (max-width: 768px) {
@@ -134,18 +138,19 @@ td {
 /* Submit form */
 
 .form-container {
+  display: none;
   margin: 0 auto;
   background-color: #eaedf9;
   margin-top: 50px;
   position: relative;
-  display: flex;
   justify-content: center;
   align-content: center;
   width: 500px;
   height: 600px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
   border: 1px solid black;
-  display: none;
+  opacity: 0;
+  transition: opacity 2s;
 }
 
 .table-form {
@@ -177,31 +182,55 @@ td {
   font-weight: bold;
 }
 
-.description-field label input {
+.description-field {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
 }
 
-.description-field input {
-  width: 70%;
+.description-field label input {
+  display: block;
+}
+
+.description-field label:focus {
+  color: #474e77;
+}
+
+.form-input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #dde2ff;
+  width: 110%;
+  transition: border-bottom-color 1s;
+}
+
+.form-input:focus {
+  border-bottom-color: #474e77;
+}
+
+.description-field input:focus + label {
+  border-bottom-color: #474e77;
 }
 
 .description-field {
+  display: inline-block;
   margin-bottom: 30px;
   font-family: 'Lato', sans-serif;
 }
 
 .category-field {
   font-family: 'Lato', sans-serif;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  display: inline-block;
+}
+
+.category-field label input {
+  display: block;
 }
 
 .category-field input {
-  width: 40%;
+  width: 80%;
   height: 22px;
-  margin-left: 5px;
+  margin-bottom: 10px;
 }
 
 .category-field button {
@@ -216,8 +245,11 @@ td {
 }
 
 #dropdown {
+  font-family: 'Lato', sans-serif;
   position: absolute;
-  left: 24.8%;
+  width: 48.5%;
+  bottom: 37%;
+  left: 30%;
   margin-top: 20px;
 }
 
@@ -229,4 +261,16 @@ td {
   font-weight: bold;
   color: #262626;
   cursor: pointer;
+}
+
+.show-form {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+}
+
+.hide-form {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
 }

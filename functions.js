@@ -35,13 +35,38 @@ function displayTable() {
   }
 }
 
+function showContainer(element) {
+  if (element.classList.contains('hide-form')) {
+    element.classList.remove('hide-form');
+    element.classList.add('show-form');
+  } else {
+    element.classList.add('show-form');
+  }
+}
+
+function hideContainer(element) {
+  if (element.classList.contains('show-form')) {
+    element.classList.remove('show-form');
+    element.classList.add('hide-form');
+  } else {
+    element.classList.add('hide-form');
+  }
+}
+
+function addCategory(value) {
+  const option = document.createElement('option');
+  option.innerHTML = `<option value="${value}">${value}</option>`;
+  dropdownMenu.appendChild(option);
+}
+
 function resetTimer() {
   watch.reset();
 }
 
 function logTimer() {
   stopTimer();
-  watch.logTime();
-  watch.reset();
-  console.log(watch.date);
+  hideContainer(tableContainer);
+  hideContainer(stopwatchContainer);
+  showContainer(formContainer);
+  console.log(watch.date.getMinutes(watch.time));
 }

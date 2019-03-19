@@ -39,11 +39,15 @@ class Stopwatch {
   }
 
   logTime() {
+    const descriptionValue = descriptionInput.value;
+    const categoryValue = dropdownMenu.value;
     let date = `${this.month}/${this.date.getDate()}/${this.year}`;
     let weekDay = this.dayOfWeek[this.day];
 
     let stopwatchTime = {
       id: this.timeId,
+      description: descriptionValue,
+      category: categoryValue,
       date: date,
       dayofWeek: weekDay,
       time: this.timeFormatter(this.time).replace(/\s/g, '')
@@ -69,8 +73,8 @@ class Stopwatch {
     row.innerHTML = `<tr>
     <td>${time.date}</td>
     <td>${time.dayofWeek}</td>
-    <td>Working on stopwatch</td>
-    <td>coding</td>
+    <td>${time.description}</td>
+    <td>${time.category}</td>
     <td>${time.time}</td>
   </tr>`;
     tableBody.appendChild(row);
