@@ -15,7 +15,7 @@ body {
 }
 
 #timer {
-  font-size: 70px;
+  font-size: 80px;
   font-family: 'Fredericka the Great', cursive;
 }
 
@@ -129,4 +129,104 @@ td {
 
 td {
   font-size: 16px;
+}
+
+/* Submit form */
+
+.form-container {
+  margin: 0 auto;
+  background-color: #eaedf9;
+  margin-top: 50px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 500px;
+  height: 600px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  border: 1px solid black;
+  display: none;
+}
+
+.table-form {
+  position: relative;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+}
+
+.table-form h1 {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  font-size: 35px;
+  font-family: 'Fredericka the Great', cursive;
+  text-align: center;
+  margin: 80px 0;
+  border-radius: 15px;
+}
+
+.table-form select {
+  width: 139.5px;
+}
+
+.table-form label {
+  font-weight: bold;
+}
+
+.description-field label input {
+  display: flex;
+  flex-direction: column;
+}
+
+.description-field input {
+  width: 70%;
+}
+
+.description-field {
+  margin-bottom: 30px;
+  font-family: 'Lato', sans-serif;
+}
+
+.category-field {
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.category-field input {
+  width: 40%;
+  height: 22px;
+  margin-left: 5px;
+}
+
+.category-field button {
+  font-size: 12px;
+  width: 100px;
+}
+
+#submit-btn {
+  position: absolute;
+  left: 0;
+  bottom: 20%;
+}
+
+#dropdown {
+  position: absolute;
+  left: 24.8%;
+  margin-top: 20px;
+}
+
+.x-btn {
+  position: absolute;
+  bottom: -6%;
+  right: 1px;
+  font-size: 23px;
+  font-weight: bold;
+  color: #262626;
+  cursor: pointer;
 }

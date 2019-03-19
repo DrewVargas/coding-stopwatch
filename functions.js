@@ -22,6 +22,7 @@ function stopTimer() {
 
 function clearStorage() {
   localStorage.clear();
+  document.location.reload();
 }
 
 function displayTable() {
@@ -42,4 +43,5 @@ function logTimer() {
   stopTimer();
   watch.logTime();
   watch.reset();
+  console.log(watch.date);
 }

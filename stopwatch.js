@@ -32,6 +32,12 @@ class Stopwatch {
     return timePassed;
   }
 
+  update() {
+    this.time += this.delta();
+    let timeFormatted = this.timeFormatter(this.time);
+    this.elem.textContent = timeFormatted;
+  }
+
   logTime() {
     let date = `${this.month}/${this.date.getDate()}/${this.year}`;
     let weekDay = this.dayOfWeek[this.day];
@@ -94,11 +100,7 @@ class Stopwatch {
 
   start() {
     if (!this.isOn) {
-      this.interval = setInterval(() => {
-        this.time += this.delta();
-        let timeFormatted = this.timeFormatter(this.time);
-        this.elem.textContent = timeFormatted;
-      }, 1000);
+      this.interval = setInterval(() => this.update(), 1000);
       this.offset = Date.now();
       this.isOn = true;
     }
