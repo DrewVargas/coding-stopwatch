@@ -17,13 +17,12 @@ const submitBtn = document.getElementById('submit-btn');
 
 const watch = new Stopwatch(timer);
 
+setInterval(logButton, 1000);
+setInterval(disableRowButton, 1000);
+
 categoryBtn.addEventListener('click', e => {
-  const categoryValue = categoryInput.value;
   e.preventDefault();
-  addCategory(categoryInput.value);
-  dropdownMenu.value = categoryValue;
-  console.log(dropdownMenu.value);
-  categoryInput.value = '';
+  categorySelect();
 });
 
 toggleBtn.addEventListener('click', toggleTimer);
@@ -35,6 +34,7 @@ clearBtn.addEventListener('click', clearStorage);
 logBtn.addEventListener('click', () => {
   formHeader.textContent = watch.timeFormatter(watch.time);
   logTimer();
+  dropdownMenu.value = '';
 });
 
 submitBtn.addEventListener('click', e => {
@@ -43,8 +43,9 @@ submitBtn.addEventListener('click', e => {
   hideContainer(formContainer);
   showContainer(stopwatchContainer);
   showContainer(tableContainer);
-  watch.reset();
+  document.location.reload();
   descriptionInput.value = '';
+  dropdownMenu.value = '';
 });
 
 xBtn.addEventListener('click', () => {
@@ -53,4 +54,7 @@ xBtn.addEventListener('click', () => {
   showContainer(tableContainer);
 });
 
-document.addEventListener('DOMContentLoaded', displayTable);
+document.addEventListener('DOMContentLoaded', () => {
+  displayTable();
+  categoryList();
+});

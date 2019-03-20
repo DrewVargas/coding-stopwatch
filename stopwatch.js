@@ -68,6 +68,16 @@ class Stopwatch {
     localStorage.setItem('time', JSON.stringify(timeTable));
   }
 
+  storeCategory(category) {
+    let newCategory = localStorage.getItem('categories')
+      ? JSON.parse(localStorage.getItem('categories'))
+      : [];
+
+    newCategory.push(category);
+
+    localStorage.setItem('categories', JSON.stringify(newCategory));
+  }
+
   addTime(time) {
     const row = document.createElement('tr');
     row.innerHTML = `<tr>

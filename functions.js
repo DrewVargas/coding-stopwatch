@@ -25,6 +25,16 @@ function clearStorage() {
   document.location.reload();
 }
 
+function categoryList() {
+  let categoryStore = localStorage.getItem('categories');
+
+  if (categoryStore) {
+    const categoryList = JSON.parse(localStorage.getItem('categories'));
+
+    categoryList.forEach(category => addCategory(category));
+  }
+}
+
 function displayTable() {
   let inStorage = localStorage.getItem('time');
 
@@ -32,6 +42,25 @@ function displayTable() {
     const timeList = JSON.parse(localStorage.getItem('time'));
 
     timeList.forEach(item => watch.addTime(item));
+  }
+}
+
+function categorySelect() {
+  const categoryValue = categoryInput.value;
+  addCategory(categoryValue);
+  watch.storeCategory(categoryValue);
+  dropdownMenu.value = categoryValue;
+  console.log(dropdownMenu.value);
+  categoryInput.value = '';
+}
+
+function logButton() {
+  if (watch.time === 0) {
+    logBtn.classList.add('log-btn');
+    logBtn.disabled = true;
+  } else if (watch.time > 0) {
+    logBtn.classList.remove('log-btn');
+    logBtn.disabled = false;
   }
 }
 
@@ -53,6 +82,18 @@ function hideContainer(element) {
   }
 }
 
+function disableRowButton() {
+  const descriptionValue = descriptionInput.value;
+  const categoryValue = dropdownMenu.value;
+  if (descriptionValue === '' || categoryValue === '') {
+    submitBtn.classList.add('log-btn');
+    submitBtn.disabled = true;
+  } else if (descriptionValue.length > 0 || categoryValue.length > 0) {
+    submitBtn.classList.remove('log-btn');
+    submitBtn.disabled = false;
+  }
+}
+
 function addCategory(value) {
   const option = document.createElement('option');
   option.innerHTML = `<option value="${value}">${value}</option>`;
@@ -68,5 +109,5 @@ function logTimer() {
   hideContainer(tableContainer);
   hideContainer(stopwatchContainer);
   showContainer(formContainer);
-  console.log(watch.date.getMinutes(watch.time));
+  console.log(watch.time);
 }
