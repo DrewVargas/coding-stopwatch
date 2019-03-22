@@ -48,7 +48,6 @@ function displayTable() {
 function categorySelect() {
   const categoryValue = categoryInput.value;
   addCategory(categoryValue);
-  watch.storeCategory(categoryValue);
   dropdownMenu.value = categoryValue;
   console.log(dropdownMenu.value);
   categoryInput.value = '';
@@ -98,6 +97,7 @@ function addCategory(value) {
   const option = document.createElement('option');
   option.innerHTML = `<option value="${value}">${value}</option>`;
   dropdownMenu.appendChild(option);
+  watch.storeCategory(value);
 }
 
 function resetTimer() {

@@ -22,7 +22,6 @@ class Stopwatch {
       .slice(2);
     this.month = this.date.getMonth() + 1;
     this.timeId = 1;
-    this.timeList = [];
   }
 
   delta() {
@@ -53,7 +52,6 @@ class Stopwatch {
       time: this.timeFormatter(this.time).replace(/\s/g, '')
     };
     this.timeId++;
-    this.timeList.push(stopwatchTime);
     this.addTime(stopwatchTime);
     this.storeTime(stopwatchTime);
   }
@@ -73,9 +71,12 @@ class Stopwatch {
       ? JSON.parse(localStorage.getItem('categories'))
       : [];
 
-    newCategory.push(category);
-
-    localStorage.setItem('categories', JSON.stringify(newCategory));
+    if (!newCategory.includes(category.toLowerCase())) {
+      newCategory.push(category);
+      localStorage.setItem('categories', JSON.stringify(newCategory));
+    } else {
+      localStorage.setItem('categories', JSON.stringify(newCategory));
+    }
   }
 
   addTime(time) {
@@ -94,8 +95,7 @@ class Stopwatch {
     let time = new Date(timeInSec);
     let minutes = time.getMinutes().toString();
     let seconds = time.getSeconds().toString();
-    let hours = time.getHours().toString();
-    hours = '0';
+    let hours = time.getUTCHours().toString();
 
     if (minutes.length < 2) {
       minutes = `0${minutes}`;
@@ -103,10 +103,6 @@ class Stopwatch {
 
     if (seconds.length < 2) {
       seconds = `0${seconds}`;
-    }
-
-    if (hours.length < 2) {
-      hours = `${hours}`;
     }
 
     return `${hours} : ${minutes} : ${seconds}`;
