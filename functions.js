@@ -21,7 +21,7 @@ function stopTimer() {
 }
 
 function clearStorage() {
-  localStorage.clear();
+  localStorage.removeItem('time');
   document.location.reload();
 }
 
@@ -70,6 +70,12 @@ function showContainer(element) {
   } else {
     element.classList.add('show-form');
   }
+  // if (!element.classList.contains('show-form')) {
+  //   element.classList.add('show-form');
+  //   element.classList.remove('hide-form');
+  // } else {
+  //   element.classList.add('hide-form');
+  // }
 }
 
 function hideContainer(element) {
@@ -79,6 +85,12 @@ function hideContainer(element) {
   } else {
     element.classList.add('hide-form');
   }
+  // if (!element.classList.contains('hide-form')) {
+  //   element.classList.add('hide-form');
+  //   element.classList.remove('show-form');
+  // } else {
+  //   element.classList.add('show-form');
+  // }
 }
 
 function disableRowButton() {
@@ -106,8 +118,8 @@ function resetTimer() {
 
 function logTimer() {
   stopTimer();
+  showContainer(formContainer);
   hideContainer(tableContainer);
   hideContainer(stopwatchContainer);
-  showContainer(formContainer);
   console.log(watch.time);
 }

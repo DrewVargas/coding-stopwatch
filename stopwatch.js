@@ -51,7 +51,6 @@ class Stopwatch {
       dayofWeek: weekDay,
       time: this.timeFormatter(this.time).replace(/\s/g, '')
     };
-    this.timeId++;
     this.addTime(stopwatchTime);
     this.storeTime(stopwatchTime);
   }
@@ -62,6 +61,7 @@ class Stopwatch {
       : [];
 
     timeTable.push(stopwatch);
+    stopwatch.id = timeTable.length;
 
     localStorage.setItem('time', JSON.stringify(timeTable));
   }
@@ -74,7 +74,9 @@ class Stopwatch {
     if (!newCategory.includes(category.toLowerCase())) {
       newCategory.push(category);
       localStorage.setItem('categories', JSON.stringify(newCategory));
-    } else {
+    } else if (newCategory.includes('')) {
+      const index = newCategory.indexOf('');
+      newCategory.splice(index, 1);
       localStorage.setItem('categories', JSON.stringify(newCategory));
     }
   }

@@ -52,6 +52,7 @@ xBtn.addEventListener('click', () => {
   hideContainer(formContainer);
   showContainer(stopwatchContainer);
   showContainer(tableContainer);
+  descriptionInput.value = '';
 });
 
 document.addEventListener('DOMContentLoaded', () => {
